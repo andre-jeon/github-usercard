@@ -6,15 +6,17 @@ console.log(axios)
     (replacing the placeholder with your Github name):
     https://api.github.com/users/andre-jeon
 */
-
+// `${}`
 axios.get('https://api.github.com/users/andre-jeon')
   .then(res => {
     console.log(res)
+    cardS.appendChild(cardMaker(res.data))
   }) 
   .catch(err => {
     console.log(err)
   })
 
+const cardS = document.querySelector('.cards')
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
@@ -39,7 +41,7 @@ axios.get('https://api.github.com/users/andre-jeon')
     user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const followersArray = ['tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell', 'bender0239'];
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
@@ -83,11 +85,12 @@ function cardMaker (obj) {
   image.src = obj.avatar_url
   name.textContent = obj.name
   username.textContent = obj.login
-  location.textContent = obj.location
+  location.textContent = `Location: ${obj.location}`
+  profile.textContent = 'Profile: '
   address.textContent = obj.html_url
-  followers.textContent = obj.followers
-  following.textContent = obj.following
-  bio.textContent = obj.bio
+  followers.textContent = `Followers: ${obj.followers}`
+  following.textContent = `Following: ${obj.following}`
+  bio.textContent = `Bio: ${obj.bio}`
 
   card.appendChild(image)
   card.appendChild(cardInfo)
