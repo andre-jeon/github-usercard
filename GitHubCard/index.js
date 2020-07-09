@@ -75,6 +75,11 @@ function cardMaker (obj) {
   const following = document.createElement('p')
   const bio = document.createElement('p')
 
+  card.classList.add('card')
+  cardInfo.classList.add('card-info')
+  name.classList.add('name')
+  username.classList.add('username')
+
   image.src = obj.avatar_url
   name.textContent = obj.name
   username.textContent = obj.login
@@ -97,7 +102,6 @@ function cardMaker (obj) {
 
   return card
 }
-
 
 /*
   List of LS Instructors Github username's:
