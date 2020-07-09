@@ -6,8 +6,7 @@ console.log(axios)
     (replacing the placeholder with your Github name):
     https://api.github.com/users/andre-jeon
 */
-// `${}`
-axios.get('https://api.github.com/users/andre-jeon')
+axios.get(`https://api.github.com/users/${followersArray}`)
   .then(res => {
     console.log(res)
     cardS.appendChild(cardMaker(res.data))
@@ -17,6 +16,12 @@ axios.get('https://api.github.com/users/andre-jeon')
   })
 
 const cardS = document.querySelector('.cards')
+
+followersArray.forEach(item => {
+  cardS.appendChild(cardMaker(item))
+})
+
+
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
@@ -41,7 +46,8 @@ const cardS = document.querySelector('.cards')
     user, and adding that card to the DOM.
 */
 
-const followersArray = ['tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell', 'bender0239'];
+
+const followersArray = ['jdulay91', 'beaadelrosario', 'StaceyLouis', 'andre-jeon', 'bikesh-maharjan'];
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
