@@ -88,6 +88,7 @@ function cardMaker (obj) {
   location.textContent = `Location: ${obj.location}`
   profile.textContent = 'Profile: '
   address.textContent = obj.html_url
+  address.href = obj.html_url
   followers.textContent = `Followers: ${obj.followers}`
   following.textContent = `Following: ${obj.following}`
   bio.textContent = `Bio: ${obj.bio}`
