@@ -6,20 +6,25 @@ console.log(axios)
     (replacing the placeholder with your Github name):
     https://api.github.com/users/andre-jeon
 */
-axios.get(`https://api.github.com/users/${followersArray}`)
+axios.get(`https://api.github.com/users/andre-jeon`)
   .then(res => {
     console.log(res)
     cardS.appendChild(cardMaker(res.data))
-  }) 
-  .catch(err => {
-    console.log(err)
+    followersArray.forEach(item => {
+      axios.get(`https://api.github.com/users/${item}`)
+      .then(res => {
+        cardS.appendChild(cardMaker(res.data))
+      })
+    
+    })
   })
+
+  .catch(err => {
+      console.log(err)
+    })
 
 const cardS = document.querySelector('.cards')
 
-followersArray.forEach(item => {
-  cardS.appendChild(cardMaker(item))
-})
 
 
 /*
@@ -47,7 +52,15 @@ followersArray.forEach(item => {
 */
 
 
-const followersArray = ['jdulay91', 'beaadelrosario', 'StaceyLouis', 'andre-jeon', 'bikesh-maharjan'];
+const followersArray = ['tetondan', 
+'jdulay91', 
+'beaadelrosario', 
+'StaceyLouis',  
+'bikesh-maharjan', 
+'dustinmyers', 
+'justsml', 
+'bigknell'
+];
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
